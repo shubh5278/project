@@ -153,25 +153,18 @@
             const buttonContainer = document.getElementById('buttonContainer');
             let firstPlayComplete = false;
 
+            // Clear any stored time on page load
+            localStorage.removeItem('videoTime');
+
             // Function to handle video loading errors
             video.addEventListener('error', function() {
                 console.error('Error loading video:', video.error);
             });
 
-            // Store video playback position
-            video.addEventListener('timeupdate', function() {
-                localStorage.setItem('videoTime', video.currentTime);
-            });
-
-            // Restore video position
-            const storedTime = localStorage.getItem('videoTime');
-            if (storedTime) {
-                video.currentTime = parseFloat(storedTime);
-            }
-
-            // Clear stored time when video ends
-            video.addEventListener('ended', function() {
-                localStorage.removeItem('videoTime');
+            // Ensure video starts from beginning and autoplays
+            video.currentTime = 0;
+            video.play().catch(function(error) {
+                console.log("Autoplay failed:", error);
             });
 
             // Add click event to play/pause video
@@ -207,6 +200,11 @@
                 window.location.href = './index.html';
             });
         });
+        window.onload = function() {
+        var video = document.getElementById('myVideo');
+        // Reset video time to 0 (beginning) on page load
+        video.currentTime = 0;
+    }
     </script>
 </body>
 </html>
