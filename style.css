@@ -8,6 +8,7 @@
 
 :root {
   --dark-color: #000;
+  --scale-factor: 1;
 }
 
 body {
@@ -35,6 +36,7 @@ body {
 .flowers {
   position: relative;
   transform: scale(0.9);
+  transform-origin: center bottom;
 }
 
 .flower {
@@ -1351,4 +1353,91 @@ canvas {
 /* Individual star animation */
 #nextButton:hover .stars span {
   animation: sparkle 1.5s infinite;
+}
+
+/* Responsive scaling */
+@media screen and (max-width: 1200px) {
+  .flowers {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flowers {
+    transform: scale(0.6);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .flowers {
+    transform: scale(0.4);
+  }
+}
+
+/* Landscape mode optimization */
+@media (orientation: landscape) and (max-height: 500px) {
+  .flowers {
+    transform: scale(0.35);
+  }
+  
+  #nextButton {
+    bottom: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Performance optimizations */
+.flower, .flower__light, .grow-ans {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+  }
+}
+/* Mobile-specific adjustments */
+@media screen and (max-width: 480px) {
+  #nextButton {
+    bottom: 40px; /* Increased bottom spacing for better visibility */
+    padding: 10px 20px; /* Further reduced padding */
+    font-size: 14px; /* Smaller font size for mobile */
+    width: auto; /* Allow button to size based on content */
+    min-width: 120px; /* Minimum width to ensure touchability */
+    text-align: center;
+    /* Ensure button stays above other elements */
+    z-index: 2000;
+  }
+}
+
+/* Small phone optimization */
+@media screen and (max-width: 320px) {
+  #nextButton {
+    bottom: 30px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+/* Handle landscape mode */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  #nextButton {
+    bottom: 15px; /* Reduced bottom spacing in landscape */
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Ensure button is visible when keyboard is open */
+@media screen and (max-height: 400px) {
+  #nextButton {
+    position: absolute; /* Change to absolute positioning when keyboard might be open */
+    bottom: 10px;
+  }
 }
