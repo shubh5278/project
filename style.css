@@ -1405,7 +1405,7 @@ canvas {
 /* Mobile-specific adjustments */
 @media screen and (max-width: 480px) {
   #nextButton {
-    bottom: 60px; /* Increased from 40px to clear browser bottom bar */
+    bottom: 10vh; /* Increased from 40px to clear browser bottom bar */
     padding: 10px 20px;
     font-size: 14px;
     width: auto;
@@ -1420,7 +1420,7 @@ canvas {
 
 @media screen and (max-width: 320px) {
   #nextButton {
-    bottom: 50px; /* Slightly lower than 60px, but still above browser bar */
+    bottom: 10vh;/* Slightly lower than 60px, but still above browser bar */
     padding: 8px 16px;
     font-size: 12px;
     background-color: rgb(20, 20, 20);
@@ -1431,7 +1431,7 @@ canvas {
 
 @media screen and (max-height: 480px) and (orientation: landscape) {
   #nextButton {
-    bottom: 30px; /* Increased from 15px to avoid overlap */
+    bottom: 10vh; /* Increased from 15px to avoid overlap */
     padding: 8px 16px;
     font-size: 14px;
     background-color: rgb(20, 20, 20);
@@ -1443,7 +1443,7 @@ canvas {
 @media screen and (max-height: 400px) {
   #nextButton {
     position: absolute;
-    bottom: 20px; /* Increased from 10px for better visibility */
+    bottom: 10vh; /* Increased from 10px for better visibility */
     background-color: rgb(20, 20, 20);
     border: 3px solid cyan;
     box-shadow: 0 0 10px cyan;
