@@ -1405,39 +1405,47 @@ canvas {
 /* Mobile-specific adjustments */
 @media screen and (max-width: 480px) {
   #nextButton {
-    bottom: 40px; /* Increased bottom spacing for better visibility */
-    padding: 10px 20px; /* Further reduced padding */
-    font-size: 14px; /* Smaller font size for mobile */
-    width: auto; /* Allow button to size based on content */
-    min-width: 120px; /* Minimum width to ensure touchability */
+    bottom: 60px; /* Increased from 40px to clear browser bottom bar */
+    padding: 10px 20px;
+    font-size: 14px;
+    width: auto;
+    min-width: 120px;
     text-align: center;
-    /* Ensure button stays above other elements */
     z-index: 2000;
+    background-color: rgb(20, 20, 20); /* Slightly lighter background for contrast */
+    border: 3px solid cyan; /* Thicker and brighter border */
+    box-shadow: 0 0 10px cyan; /* Glow effect to make it stand out */
   }
 }
 
-/* Small phone optimization */
 @media screen and (max-width: 320px) {
   #nextButton {
-    bottom: 30px;
+    bottom: 50px; /* Slightly lower than 60px, but still above browser bar */
     padding: 8px 16px;
     font-size: 12px;
+    background-color: rgb(20, 20, 20);
+    border: 3px solid cyan;
+    box-shadow: 0 0 10px cyan;
   }
 }
 
-/* Handle landscape mode */
 @media screen and (max-height: 480px) and (orientation: landscape) {
   #nextButton {
-    bottom: 15px; /* Reduced bottom spacing in landscape */
+    bottom: 30px; /* Increased from 15px to avoid overlap */
     padding: 8px 16px;
     font-size: 14px;
+    background-color: rgb(20, 20, 20);
+    border: 3px solid cyan;
+    box-shadow: 0 0 10px cyan;
   }
 }
 
-/* Ensure button is visible when keyboard is open */
 @media screen and (max-height: 400px) {
   #nextButton {
-    position: absolute; /* Change to absolute positioning when keyboard might be open */
-    bottom: 10px;
+    position: absolute;
+    bottom: 20px; /* Increased from 10px for better visibility */
+    background-color: rgb(20, 20, 20);
+    border: 3px solid cyan;
+    box-shadow: 0 0 10px cyan;
   }
 }
